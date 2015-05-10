@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BNRItem.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -28,6 +29,37 @@ int main(int argc, const char * argv[]) {
             // 打印对象信息
             NSLog(@"%@", item);
         }
+        
+        // BNRItem *item = [[BNRItem alloc] init];
+        
+        // 创建一个新的NSString对象"Red Sofa",并传给BNRItem对象
+        // [item setItemName:@"Red Sofa"];
+        // item.itemName = @"Red Sofa";
+        
+        // 创建一个新的NSString对象"A1B2C",并传给BNRItem对象
+        // [item setSerialNumber:@"A1B2C"];
+        // item.serialNumber = @"A1B2C";
+        
+        // 将数值100传给BNRItem，赋值给valueInDollars
+        // [item setvalueInDollars:100];
+        // item.valueInDollars = 100;
+        
+        BNRItem *item = [[BNRItem alloc] initWithItemName:@"Red Sofa"
+                                          valueInDollars:100
+                                            serialNumber:@"A1B2C"];
+        
+        // NSLog(@"%@ %@ %@ %d", [item itemName], [item dateCreated],
+                            // [item serialNumber], [item valueInDollars]);
+        
+        // 程序会先调用相应实参的description方法，
+        // 然后用返回的字符串替换%@
+        NSLog(@"%@",item);
+        
+        BNRItem *itemWithName = [[BNRItem alloc] initWithItemName:@"Blue Sofa"];
+        NSLog(@"%@", itemWithName);
+        
+        BNRItem *itemWithNoName = [[BNRItem alloc] init];
+        NSLog(@"%@", itemWithNoName);
         
         // 释放items所指向的NSMutableArray对象
         items = nil;
