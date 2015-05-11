@@ -61,6 +61,15 @@ int main(int argc, const char * argv[]) {
         BNRItem *itemWithNoName = [[BNRItem alloc] init];
         NSLog(@"%@", itemWithNoName);
         
+        for (int i = 0; i < 10; i++) {
+            BNRItem *item = [BNRItem randomItem];
+            [items addObject:item];
+        }
+        
+        for (BNRItem *item in items) {
+            NSLog(@"%@", item);
+        }
+        
         // 释放items所指向的NSMutableArray对象
         items = nil;
     }

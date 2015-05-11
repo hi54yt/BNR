@@ -27,6 +27,8 @@
 
 - (NSDate *)dateCreated;
 
++ (instancetype)randomItem;
+
 // BNRItem类的指定初始化方法
 - (instancetype)initWithItemName:(NSString *)name
                   valueInDollars:(int)value
