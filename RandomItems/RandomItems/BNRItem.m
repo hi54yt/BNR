@@ -26,9 +26,13 @@
     // 注意，类型为NSInteger的变量不是对象
     // NSInteger是一种针对unsigned long（无符号长整数）的类型定义
     
+//    NSString *randomName = [NSString stringWithFormat:@"%@ %@",
+//                            [randomAdjectivelist objectAtIndex:adjectiveIndex],
+//                            [randomNounList objectAtIndex:nounIndex]];
+    
     NSString *randomName = [NSString stringWithFormat:@"%@ %@",
-                            [randomAdjectivelist objectAtIndex:adjectiveIndex],
-                            [randomNounList objectAtIndex:nounIndex]];
+                            randomAdjectivelist[adjectiveIndex],
+                            randomNounList[nounIndex]];
     
     int randomValue = arc4random() % 100;
     
@@ -59,6 +63,13 @@
     }
     
     return self;
+}
+
+- (instancetype)initWithItemName:(NSString *)name serialNumber:(NSString *)sNumber
+{
+    return [self initWithItemName:name
+                   valueInDollars:0
+                     serialNumber:sNumber];
 }
 
 - (instancetype)initWithItemName:(NSString *)name

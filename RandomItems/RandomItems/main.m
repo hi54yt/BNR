@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BNRItem.h"
+#import "BNRContainer.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -15,21 +16,21 @@ int main(int argc, const char * argv[]) {
         // 创建一个NSMutableArray对象，并用items变量保存该对象的地址
         NSMutableArray *items = [[NSMutableArray alloc] init];
         
-        // 向items所指的NSMutableArray对象发送addObject：消息
-        // 每次传入一个字符串
-        [items addObject:@"One"];
-        [items addObject:@"Two"];
-        [items addObject:@"Three"];
-        
-        // 继续向同一个对象发送消息，这次是insertObject:atIndex:
-        [items insertObject:@"Zero" atIndex:0];
-        
-        // 便利items数组中的每一个item
-        for (NSString *item in items) {
-            // 打印对象信息
-            NSLog(@"%@", item);
-        }
-        
+//        // 向items所指的NSMutableArray对象发送addObject：消息
+//        // 每次传入一个字符串
+//        [items addObject:@"One"];
+//        [items addObject:@"Two"];
+//        [items addObject:@"Three"];
+//        
+//        // 继续向同一个对象发送消息，这次是insertObject:atIndex:
+//        [items insertObject:@"Zero" atIndex:0];
+//        
+//        // 便利items数组中的每一个item
+//        for (NSString *item in items) {
+//            // 打印对象信息
+//            NSLog(@"%@", item);
+//        }
+//        
         // BNRItem *item = [[BNRItem alloc] init];
         
         // 创建一个新的NSString对象"Red Sofa",并传给BNRItem对象
@@ -48,12 +49,16 @@ int main(int argc, const char * argv[]) {
                                           valueInDollars:100
                                             serialNumber:@"A1B2C"];
         
+        BNRItem *item2 = [[BNRItem alloc] initWithItemName:@"Black Desk"
+                                              serialNumber:@"FFFFF"];
+        
         // NSLog(@"%@ %@ %@ %d", [item itemName], [item dateCreated],
                             // [item serialNumber], [item valueInDollars]);
         
         // 程序会先调用相应实参的description方法，
         // 然后用返回的字符串替换%@
         NSLog(@"%@",item);
+        NSLog(@"%@",item2);
         
         BNRItem *itemWithName = [[BNRItem alloc] initWithItemName:@"Blue Sofa"];
         NSLog(@"%@", itemWithName);
@@ -66,9 +71,15 @@ int main(int argc, const char * argv[]) {
             [items addObject:item];
         }
         
+//        NSLog(@"items 0:%@",items[10]);
+        
         for (BNRItem *item in items) {
             NSLog(@"%@", item);
         }
+        
+        BNRContainer *bnrContainer = [[BNRContainer alloc] init];
+        bnrContainer.subItems = items;
+        NSLog(@"%@", bnrContainer);
         
         // 释放items所指向的NSMutableArray对象
         items = nil;
